@@ -1,0 +1,22 @@
+[
+    {
+        "Campo00": "Pippo 00",
+        "Campo01": 101,
+        "Campo02": "Tosto 02"
+    },
+    {
+        "Campo00": "Peppo 10",
+        "Campo01": 102,
+        "Campo02": "Testo 12"
+    },
+    {
+        "Campo00": "Petto 20",
+        "Campo01": 103,
+        "Campo02": "Tasto 22"
+    },
+    {
+        "Campo00": "Poppo 10",
+        "Campo01": 102,
+        "Campo02": "Tusto 12"
+    }
+]

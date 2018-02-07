@@ -1,0 +1,58 @@
+[
+
+    {
+        "customerId": "15882393",
+        "firstName": "Julien",
+        "title": "Sig.ra",
+        "lastName": "Jeffy",
+        "email": "Julien@exa.com",
+        "address": "Corso Spandia, 610",
+        "city": "San Benedetto del Toronto",
+        "zipCode": "90034",
+        "phoneNumber": "0821-033580",
+        "notes": "Cliente assillante.",
+        "history": "21.4.2018|Ordine|caffe~23.4.2018|Ordine|Mega Foto~29.4.2018|Fattura|Mega Foto 40$~05.5.2018|Nota di reclamo|Mega Foto 40$"
+    },
+    {
+        "customerId": "15772393",
+        "firstName": "Giulio",
+        "title": "Sig.re",
+        "lastName": "Dardan",
+        "email": "GiulDar@exa.com",
+        "address": "Corso Napoteco, 320",
+        "city": "Capo de Bosc",
+        "zipCode": "90538",
+        "phoneNumber": "0721-433580",
+        "notes": "Cliente Tranquillo.",
+        "history": "21.4.2018|Ordine|caffe~23.4.2018|Ordine|Mega Foto~29.4.2018|Fattura|Mega Foto 40$~05.5.2018|Nota di reclamo|Mega Foto 40$"
+    },
+    {
+        "customerId": "15662393",
+        "firstName": "Herbert",
+        "title": "Sig.re",
+        "lastName": "Volton",
+        "email": "Herby@exa.com",
+        "address": "Corso Spandia, 610",
+        "city": "San Benedetto del Toronto",
+        "zipCode": "90034",
+        "phoneNumber": "0821-033580",
+        "notes": "Cliente assillante.",
+        "history": "21.4.2018|Ordine|caffe~23.4.2018|Ordine|Mega Foto~29.4.2018|Fattura|Mega Foto 40$~05.5.2018|Nota di reclamo|Mega Foto 40$"
+    },
+    {
+        "customerId": "15552393",
+        "firstName": "Fabricen",
+        "title": "Sig.ra",
+        "lastName": "Polfrey",
+        "email": "FabriPol@exa.com",
+        "address": "Corso Spandia, 610",
+        "city": "San Benedetto del Toronto",
+        "zipCode": "90034",
+        "phoneNumber": "0821-033580",
+        "notes": "Cliente assillante.",
+        "history": "21.4.2018|Ordine|caffe~23.4.2018|Ordine|Mega Foto~29.4.2018|Fattura|Mega Foto 40$~05.5.2018|Nota di reclamo|Mega Foto 40$"
+    }
+
+
+
+]
