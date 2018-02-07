@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.qml</file>
+        <file>qml/CustomerModel.qml</file>
+        <file>qml/History.qml</file>
+        <file>qml/HistoryForm.qml</file>
+        <file>qml/Notes.qml</file>
+        <file>qml/NotesForm.qml</file>
+        <file>qml/Settings.qml</file>
+        <file>qml/SettingsForm.qml</file>
+        <file>qml/SettingsList.qml</file>
+        <file>qml/SettingsListForm.qml</file>
+        <file>conf/backup.txt</file>
+        <file>conf/backup_read.txt</file>
+        <file>conf/FileTest</file>
+        <file>conf/FileTestInstance</file>
+        <file>conf/GUIBkp_read.txt</file>
+        <file>conf/json_doc_rx.txt</file>
+    </qresource>
+</RCC>
