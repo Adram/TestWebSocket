@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+        @font-face { font-family: marco; src: url('01Digit.ttf'); } 
+          
+        .div_L0 {
+            background-color: #880044;
+            width: 1000px;
+            height: 1000px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border: 10px;
+            overflow: scroll;
+            
+        }
+        
+        .div_L1_cnit_add_bkp, .div_L1_cnit_gen_par {
+            background-color: #7ad117;
+            max-height: 100px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            resize: both;
+            overflow: auto;
+
+            cursor: pointer;
+            padding: 12px 8px 12px 40px;
+            font-size: 24px;
+        }
+        
+        .div_L1_cnit_lst_bkp {
+            background-color: #88ff00;
+            max-height: 700px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            //resize: vertical;
+            resize: both;
+            overflow: auto;
+        }
+        
+        .div_L2_bkp_cnit {
+            background-color: #888800;
+            display: block;
+            transition: max-height 1.2s ease-out;
+        }
+
+        .div_L3_bkp_title {
+            cursor: pointer;
+            padding: 12px 8px 12px 40px;
+            font-size: 24px;
+  
+            background-color: #ccdd44;
+            display: block;
+
+            /* make the list items unselectable */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .div_L2_bkp_cnit:nth-child(odd) > .div_L3_bkp_title {
+            background-color: #b0d351;
+        }
+
+        .div_L3_bkp_title:hover {
+            background-color: #dd9b44;
+        }
+
+        .div_L2_bkp_cnit:nth-child(odd) > .div_L3_bkp_title:hover {
+            background-color: #dd9b44;
+        }
+
+        .div_L3_bkp_cnit_lst {
+            background-color: #33ff88;
+            display: block;
+            max-height: 0px;
+            overflow: hidden;
+            transition: max-height 1.2s ease-out;
+        }
+
+        .div_L4_bkp_cnit {
+            background-color: #118844;
+            display: block;
+            transition: max-height 1.2s ease-out;
+        }
+
+        .div_L5_bkp_title {
+            background-color: #44cc00;
+            display: block; 
+
+            cursor: pointer;
+            padding: 8px 6px 8px 30px;
+            font-size: 18px;
+            position: relative;
+        }
+ 
+        .div_L4_bkp_cnit:nth-child(odd) > .div_L5_bkp_title {
+            background-color: #4baf19;
+            //display: block; 
+            //cursor: pointer;
+            //padding: 0px 6px 0px 30px;
+            //font-size: 18px;
+        }
+
+        .div_L4_bkp_cnit:nth-child(odd) > .div_L5_bkp_title:hover {
+            background-color: #799968;
+        }
+        
+        .div_L5_bkp_title:hover {
+            background-color: #9dc987;
+        }
+        
+        .div_L5_bkp_cnit_lst {
+            background-color: #774499;
+            max-Height: 0px;
+            overflow: scroll;
+            display: block;
+            transition: max-height 1.2s ease-out;
+            resize: vertical;
+            overflow: auto;
+        }
+
+        .div_L5_bkp_cnit_btn {
+            display: inline-block;
+            //position: relative;
+            //right: 0px;
+            float: right;
+            width: 20px;
+            //height: 15px
+            //line-height: 40px;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .div_L5_bkp_cnit_btn:hover {
+            background-color: #9dc987;
+        }
+
+        .div_L6_bkp_f1_cnit_par {
+            background-color: #77ff99;
+            display: block;
+        }
+        
+        .div_L6_bkp_f2_cnit_log {
+            background-color: #77ff99;
+            display: block;
+        }
+
+        .input_par {
+            max-width: 300px;
+            background-color: #888800;
+        }
+
+        .div_L1_tst {
+            height: 180px;
+            background-color: #118844;
+            overflow: scroll;
+        }
+        
+        #div_L1_tstws {
+            font-family: marco;
+            font-size: 48px;
+
+        }
+
+        .searchbutton2 {
+            max-height: 100%;
+            max-width: 100%;
+        }
+        </style>
+
+        <link href="web-fonts-with-css/css/fontawesome-all.css" rel="stylesheet">
+    </head>
+
+
+
+
+    <body>
+        <div id="div_L0_a" class="div_L0">
+            <div id="div_L1_az" class="div_L1_cnit_gen_par">
+                PARAMETRI GENERALI
+            </div>
+            <div id="div_L1_a0" class="div_L1_cnit_add_bkp">
+                AGGIUNGI UN NUOVO BACKUP
+                <input type="text" id="inputNewBackup" value="" onkeydown="if(event.keyCode==13)aggiungiBackup();"/>
+                <button onClick="aggiungiBackup();">Aggiungi</button>
+            </div>
+            <div id="div_L1_aa" class="div_L1_cnit_lst_bkp">
+            </div>
+        </div>
+
+        <!--
+
+        <div id="div_L0_tstws" class="div_L0_tst">
+            <div id="div_L1_tstBtn" class="div_L1_tst" style="height: 30px;">
+                <button onClick="initWebSocket();">Init</button>
+                <button onClick="stopWebSocket();">Stop</button>
+                <button onClick="checkWebSocket();">Check</button>
+                <button onClick="clearDebugConsole();">Clear</button>
+                <input type="text" id="inputText" value="{&quot;Comando&quot;: &quot;TxDati&quot;}" onkeydown="if(event.keyCode==13)sendMessage();"/>
+                <button onClick="sendMessage();">Send</button>
+                <input type="image" class="searchbutton" name="search" src="glyphicons-28-search.png" alt="Search">
+                <input type="image" class="searchbutton2" name="search2" src="search.png">
+            </div>
+            <div id="div_L1_tstws" class="div_L1_tst">
+                    Test_comunicazione_WebSocket
+            </div>
+        </div>
+        
+        -->
+
+        <script>
+        
+/*
+    Documentazione:
+
+    1. scopo:
+        creare un interfaccia per la gestione dei backup facendo uso di "WebSocket"
+
+    2. come farlo funzionare: è sufficiente caricare la pagina in un qualunque browser;
+        durante lo sviluppo è stato usato come browser FireFox
+    
+    3. attenzione a:
+        non ci sono particolari problemi da segnalare
+
+    4. cose da fare:
+        a. migliorare l'estetica
+        b. controllare che gli id non vengano usati ma che lo siano solo le classi o comunque che
+            in un contenitore lista (cnit_lst) non siano presenti
+            più di 26 elementi (quante sono le lettere dell'alfabeto)
+
+    5. Spostamento voci di menu per impostare l'ordine in base alle proprie esigenze
+
+    6. Inserire dei "Button" per
+    6.1. ciascun Backup: tasto di eliminazione
+    6.2. ciascun parametro: tasti di edit, di conferma, di cancellazione
+    6.3. ciascun log: tasti di run e stop
+
+    7. Inserire interfaccia
+    7.1. New Backup
+    7.2. Find
+
+    
+
+*/
+
+/*
+    Prove FONTS
+
+                    <i class="fas fa-user"></i>
+                    <i class="far fa-user"></i>
+                    <!--brand icon-->
+                    <i class="fab fa-github-square"></i>
+                    <div class="fa-3x">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                        <i class="fas fa-sync fa-spin"></i>
+                        <i class="fas fa-cog fa-spin"></i>
+                        <i class="fas fa-spinner fa-pulse"></i>
+                      </div>                  
+
+
+                    <input type="image" class="searchbutton" name="search2" src="search.png" alt="Search">
+    
+
+*/
+
+/*
+    
+    // GESTIONE DEI COLORI
+    1. colorare i titoli dei backup in modo alternato (stile zebra)
+    2. gestire l'hover del mouse sulla lista delle voc
+
+    // GESTIONE DELLE DIMENSIONI
+    0. io direi di fissare una dimensione di riferimento quella ad esempio dei "title"
+       considerandolo come elemento base le dimensioni del resto degli elementi
+       lo si può calcolare come multiplo di questo element
+
+    1. (div_L1_cnit_lst) contenitore della lista dei titoli di backup deve avere:
+    1.2. una altezza fissa
+    1.3. lo scrol
+        2. (div_L2_cnit) contenitore del singolo backup
+        2.1. si deve adattare alle dimensioni dei suoi discendenti ma
+        2.2. deve avere una dimensione massima (da capire meglio forse non serve questa condizione
+             molto probabilmente dipende dalle dimensioni del "div_L5_cnit_lst"
+            3. (div_L3_title) il titolo del backup
+            3.1. deve avere una dimensione fissa
+            3.2. non serve che abbia lo scrol
+            4. (div_L3_cnit_lst) il contenitore della lista dei tab/funzioni (Parametri, Log, etc.)
+            4.1. si deve adattare alle dimensioni dei suoi discendenti
+            
+                5. (div_L4_cnit) il contenitore del singolo tab/funzione
+                5.1. si deve adattare alle dimensioni dei suoi discendent
+                    6. (div_L5_title) il titolo della funzione
+                    6.1. deve avere una dimensione fiss
+                    7. (div_L5_cnit_lst) contenitore della lsita delle voci Parametri/Log/Altro/...
+                    7.1. deve avere dimensioni fisse, una massima ed una minima
+                    7.2. deve quindi avere lo scroll
+                    7.3. dimensione minima: 0px
+                    7.4. dimensione massima: deve contenere al massimo 6 voci    
+                    
+*/
+        function clearDebugConsole () {
+            debugTextArea.innerHTML = "";
+        }
+
+        function sendMessage (msg) {
+            if ( websocket != null ) {
+                websocket.send(document.getElementById("inputText").value);
+            }
+        }
+
+        var debugTextArea = document.getElementById("div_L1_tstws");
+        function debug(message) {
+            debugTextArea.innerHTML += message + "<br>";
+            debugTextArea.scrollTop = debugTextArea.scrollHeight;
+        }
+
+        var wsUri = "ws://192.168.10.13:1234";
+        var websocket = null;
+
+        function initWebSocket() {
+            try {
+                if (typeof MozWebSocket == 'function')
+                    WebSocket = MozWebSocket;
+                if ( websocket && websocket.readyState == 1 )
+                    websocket.close();
+                websocket = new WebSocket( wsUri );
+                websocket.onopen = function (evt) {
+                    debug("CONNECTED");
+                };
+                websocket.onclose = function (evt) {
+                    debug("DISCONNECTED");
+                };
+                websocket.onmessage = function (evt) {
+                    console.log( "Message received :", evt.data );
+                    debug( evt.data );
+                    var wsArray = JSON.parse(evt.data);
+                    console.log("Verifica array: " + Array.isArray(wsArray))
+                    if(Array.isArray(wsArray)) {
+                        wsArray.forEach(creaLista);
+
+                        // var x = document.getElementsByClassName("div_L2_bkp_cnit");
+                        // evUpdateHeight(x);
+                        // var x = document.getElementsByClassName("div_L3_bkp_cnit_lst");
+                        // evUpdateHeight(x);
+                        // var x = document.getElementsByClassName("div_L4_bkp_cnit");
+                        // evUpdateHeight(x);
+                        // var x = document.getElementsByClassName("div_L5_bkp_cnit_lst");
+                        // evUpdateHeight(x);
+
+                        // var x = document.getElementsByClassName("div_L3_bkp_title");
+                        // evClickBkpTitle(x);
+                        // var x = document.getElementsByClassName("div_L5_bkp_title");
+                        // evClickBkpTitle(x);
+                        
+                    }
+                };
+                websocket.onerror = function (evt) {
+                    debug('ERROR : ' + evt.data);
+                };
+            } catch (exception) {
+                debug('ERROR : ' + exception);
+            }
+        }
+        function stopWebSocket() {
+            if (websocket)
+                websocket.close();
+        }
+        function checkWebSocket() {
+            if (websocket != null) {
+                var stateStr;
+                switch (websocket.readyState) {
+                    case 0: {
+                        stateStr = "CONNECTING";
+                        break;
+                    }
+                    case 1: {
+                        stateStr = "OPEN";
+                        break;
+                    }
+                    case 2: {
+                        stateStr = "CLOSING";
+                        break;
+                    }
+                    case 3: {
+                        stateStr = "CLOSED";
+                        break;
+                    }
+                    default: {
+                        stateStr = "UNKNOW";
+                        break;
+                    }
+                }
+                debug("WebSocket state = " + websocket.readyState + " ( " + stateStr + " )");
+            } else {
+                debug("WebSocket is null");
+            }
+        }
+
+
+        var lettera = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+        var nodeIdLevel1 = lettera[0]+lettera[0];
+        var div_L = ["div_L0_", "div_L1_", "div_L2_", "div_L3_", "div_L4_", "div_L5_", "div_L6_", "div_L7_"];
+        
+/*
+
+        1. Sunto variabili dello script
+        2. Stato del backup
+            2.1. Attivo, In esecuzione, Disattivo
+            2.2. Lista backup con errori
+        3. Parametri del cron
+            3.1. giorno ora del backup
+
+*/
+
+        var arrayObjBkp = [
+            {
+                // Parametri dello specifico backup
+                "1-nome": "bck_paghesviluppo 1",
+                "2-listaPar": {
+                    // Parametri Specifici del backup
+                    "_NAME_BACKUP"                : "bck_paghesviluppo",
+                    "_DIR_SRC_BACKUP"             : "/media/linuxsviluppo",
+                    // Parametri Generali
+                    "_DIR_DEST_BACKUP_GEN"        : "/media/USB-BACKUP",
+                    "_DIR_BACKUP_CONF"            : "/home/lbackup/Documenti/files_backup",
+                    "_DIR_TEMPORARY"              : "/tmp",
+                    // Parametri Generali di condfigurazione
+                    "_FILE_NAME_EXCLUDE"          : "exclude_filelist.txt",
+                    "_FILE_NAME_INCLUDE"          : "include_filelist.txt",
+                    "_FILE_NAME_TEMPLATE_EMAIL"   : "email_template.html",
+                    "_LOG"                        : "log",
+                    "_MOD"                        : "lista",
+                    "_EMAIL"                      : "email",
+                    "_EXT_LOG"                    : "log",
+                    "_EXT_MOD"                    : "log",
+                    "_EXT_EMAIL"                  : "html"
+                },
+                "3-listaLog": ["log20170101","log20170102","log20170103","log20170104"]
+            },
+            {
+                // Parametri dello specifico backup
+                "1-nome": "bck_paghesviluppo 2",
+                "2-listaPar": {
+                    // Parametri Specifici del backup
+                    "_NAME_BACKUP"                : "bck_paghesviluppo",
+                    "_DIR_SRC_BACKUP"             : "/media/linuxsviluppo",
+                    // Parametri Generali
+                    "_DIR_DEST_BACKUP_GEN"        : "/media/USB-BACKUP",
+                    "_DIR_BACKUP_CONF"            : "/home/lbackup/Documenti/files_backup",
+                    "_DIR_TEMPORARY"              : "/tmp",
+                    // Parametri Generali di condfigurazione
+                    "_FILE_NAME_EXCLUDE"          : "exclude_filelist.txt",
+                    "_FILE_NAME_INCLUDE"          : "include_filelist.txt",
+                    "_FILE_NAME_TEMPLATE_EMAIL"   : "email_template.html",
+                    "_LOG"                        : "log",
+                    "_MOD"                        : "lista",
+                    "_EMAIL"                      : "email",
+                    "_EXT_LOG"                    : "log",
+                    "_EXT_MOD"                    : "log",
+                    "_EXT_EMAIL"                  : "html"
+                },
+                "3-listaLog": ["log20170101","log20170102","log20170103","log20170104"]
+            },
+            {
+                // Parametri dello specifico backup
+                "1-nome": "bck_paghesviluppo 3",
+                "2-listaPar": {
+                    // Parametri Specifici del backup
+                    "_NAME_BACKUP"                : "bck_paghesviluppo",
+                    "_DIR_SRC_BACKUP"             : "/media/linuxsviluppo",
+                    // Parametri Generali
+                    "_DIR_DEST_BACKUP_GEN"        : "/media/USB-BACKUP",
+                    "_DIR_BACKUP_CONF"            : "/home/lbackup/Documenti/files_backup",
+                    "_DIR_TEMPORARY"              : "/tmp",
+                    // Parametri Generali di condfigurazione
+                    "_FILE_NAME_EXCLUDE"          : "exclude_filelist.txt",
+                    "_FILE_NAME_INCLUDE"          : "include_filelist.txt",
+                    "_FILE_NAME_TEMPLATE_EMAIL"   : "email_template.html",
+                    "_LOG"                        : "log",
+                    "_MOD"                        : "lista",
+                    "_EMAIL"                      : "email",
+                    "_EXT_LOG"                    : "log",
+                    "_EXT_MOD"                    : "log",
+                    "_EXT_EMAIL"                  : "html"
+                },
+                "3-listaLog": ["log20170101","log20170102","log20170103","log20170104"]
+            },
+            {
+                // Parametri dello specifico backup
+                "1-nome": "bck_paghesviluppo 4",
+                "2-listaPar": {
+                    // Parametri Specifici del backup
+                    "_NAME_BACKUP"                : "bck_paghesviluppo",
+                    "_DIR_SRC_BACKUP"             : "/media/linuxsviluppo",
+                    // Parametri Generali
+                    "_DIR_DEST_BACKUP_GEN"        : "/media/USB-BACKUP",
+                    "_DIR_BACKUP_CONF"            : "/home/lbackup/Documenti/files_backup",
+                    "_DIR_TEMPORARY"              : "/tmp",
+                    // Parametri Generali di condfigurazione
+                    "_FILE_NAME_EXCLUDE"          : "exclude_filelist.txt",
+                    "_FILE_NAME_INCLUDE"          : "include_filelist.txt",
+                    "_FILE_NAME_TEMPLATE_EMAIL"   : "email_template.html",
+                    "_LOG"                        : "log",
+                    "_MOD"                        : "lista",
+                    "_EMAIL"                      : "email",
+                    "_EXT_LOG"                    : "log",
+                    "_EXT_MOD"                    : "log",
+                    "_EXT_EMAIL"                  : "html"
+                },
+                "3-listaLog": ["log20170101","log20170102","log20170103","log20170104"]
+            },
+            {
+                // Parametri dello specifico backup
+                "1-nome": "bck_paghesviluppo 5",
+                "2-listaPar": {
+                    // Parametri Specifici del backup
+                    "_NAME_BACKUP"                : "bck_paghesviluppo",
+                    "_DIR_SRC_BACKUP"             : "/media/linuxsviluppo",
+                    // Parametri Generali
+                    "_DIR_DEST_BACKUP_GEN"        : "/media/USB-BACKUP",
+                    "_DIR_BACKUP_CONF"            : "/home/lbackup/Documenti/files_backup",
+                    "_DIR_TEMPORARY"              : "/tmp",
+                    // Parametri Generali di condfigurazione
+                    "_FILE_NAME_EXCLUDE"          : "exclude_filelist.txt",
+                    "_FILE_NAME_INCLUDE"          : "include_filelist.txt",
+                    "_FILE_NAME_TEMPLATE_EMAIL"   : "email_template.html",
+                    "_LOG"                        : "log",
+                    "_MOD"                        : "lista",
+                    "_EMAIL"                      : "email",
+                    "_EXT_LOG"                    : "log",
+                    "_EXT_MOD"                    : "log",
+                    "_EXT_EMAIL"                  : "html"
+                },
+                "3-listaLog": ["log20170101","log20170102","log20170103","log20170104"]
+            },
+            {
+                // Parametri dello specifico backup
+                "1-nome": "bck_paghesviluppo 6",
+                "2-listaPar": {
+                    // Parametri Specifici del backup
+                    "_NAME_BACKUP"                : "bck_paghesviluppo",
+                    "_DIR_SRC_BACKUP"             : "/media/linuxsviluppo",
+                    // Parametri Generali
+                    "_DIR_DEST_BACKUP_GEN"        : "/media/USB-BACKUP",
+                    "_DIR_BACKUP_CONF"            : "/home/lbackup/Documenti/files_backup",
+                    "_DIR_TEMPORARY"              : "/tmp",
+                    // Parametri Generali di condfigurazione
+                    "_FILE_NAME_EXCLUDE"          : "exclude_filelist.txt",
+                    "_FILE_NAME_INCLUDE"          : "include_filelist.txt",
+                    "_FILE_NAME_TEMPLATE_EMAIL"   : "email_template.html",
+                    "_LOG"                        : "log",
+                    "_MOD"                        : "lista",
+                    "_EMAIL"                      : "email",
+                    "_EXT_LOG"                    : "log",
+                    "_EXT_MOD"                    : "log",
+                    "_EXT_EMAIL"                  : "html"
+                },
+                "3-listaLog": ["log20170101","log20170102","log20170103","log20170104"]
+            },
+            {
+                // Parametri dello specifico backup
+                "1-nome": "bck_paghesviluppo 7",
+                "2-listaPar": {
+                    // Parametri Specifici del backup
+                    "_NAME_BACKUP"                : "bck_paghesviluppo",
+                    "_DIR_SRC_BACKUP"             : "/media/linuxsviluppo",
+                    // Parametri Generali
+                    "_DIR_DEST_BACKUP_GEN"        : "/media/USB-BACKUP",
+                    "_DIR_BACKUP_CONF"            : "/home/lbackup/Documenti/files_backup",
+                    "_DIR_TEMPORARY"              : "/tmp",
+                    // Parametri Generali di condfigurazione
+                    "_FILE_NAME_EXCLUDE"          : "exclude_filelist.txt",
+                    "_FILE_NAME_INCLUDE"          : "include_filelist.txt",
+                    "_FILE_NAME_TEMPLATE_EMAIL"   : "email_template.html",
+                    "_LOG"                        : "log",
+                    "_MOD"                        : "lista",
+                    "_EMAIL"                      : "email",
+                    "_EXT_LOG"                    : "log",
+                    "_EXT_MOD"                    : "log",
+                    "_EXT_EMAIL"                  : "html"
+                },
+                "3-listaLog": ["log20170101","log20170102","log20170103","log20170104"]
+            },
+            {
+                // Parametri dello specifico backup
+                "1-nome": "bck_paghesviluppo 8",
+                "2-listaPar": {
+                    // Parametri Specifici del backup
+                    "_NAME_BACKUP"                : "bck_paghesviluppo",
+                    "_DIR_SRC_BACKUP"             : "/media/linuxsviluppo",
+                    // Parametri Generali
+                    "_DIR_DEST_BACKUP_GEN"        : "/media/USB-BACKUP",
+                    "_DIR_BACKUP_CONF"            : "/home/lbackup/Documenti/files_backup",
+                    "_DIR_TEMPORARY"              : "/tmp",
+                    // Parametri Generali di condfigurazione
+                    "_FILE_NAME_EXCLUDE"          : "exclude_filelist.txt",
+                    "_FILE_NAME_INCLUDE"          : "include_filelist.txt",
+                    "_FILE_NAME_TEMPLATE_EMAIL"   : "email_template.html",
+                    "_LOG"                        : "log",
+                    "_MOD"                        : "lista",
+                    "_EMAIL"                      : "email",
+                    "_EXT_LOG"                    : "log",
+                    "_EXT_MOD"                    : "log",
+                    "_EXT_EMAIL"                  : "html"
+                },
+                "3-listaLog": ["log20170101","log20170102","log20170103","log20170104"]
+            },
+            {
+                // Parametri dello specifico backup
+                "1-nome": "bck_paghesviluppo 9",
+                "2-listaPar": {
+                    // Parametri Specifici del backup
+                    "_NAME_BACKUP"                : "bck_paghesviluppo",
+                    "_DIR_SRC_BACKUP"             : "/media/linuxsviluppo",
+                    // Parametri Generali
+                    "_DIR_DEST_BACKUP_GEN"        : "/media/USB-BACKUP",
+                    "_DIR_BACKUP_CONF"            : "/home/lbackup/Documenti/files_backup",
+                    "_DIR_TEMPORARY"              : "/tmp",
+                    // Parametri Generali di condfigurazione
+                    "_FILE_NAME_EXCLUDE"          : "exclude_filelist.txt",
+                    "_FILE_NAME_INCLUDE"          : "include_filelist.txt",
+                    "_FILE_NAME_TEMPLATE_EMAIL"   : "email_template.html",
+                    "_LOG"                        : "log",
+                    "_MOD"                        : "lista",
+                    "_EMAIL"                      : "email",
+                    "_EXT_LOG"                    : "log",
+                    "_EXT_MOD"                    : "log",
+                    "_EXT_EMAIL"                  : "html"
+                },
+                "3-listaLog": ["log20170101","log20170102","log20170103","log20170104"]
+            },
+            {
+                // Parametri dello specifico backup
+                "1-nome": "bck_paghesviluppo A",
+                "2-listaPar": {
+                    // Parametri Specifici del backup
+                    "_NAME_BACKUP"                : "bck_paghesviluppo",
+                    "_DIR_SRC_BACKUP"             : "/media/linuxsviluppo",
+                    // Parametri Generali
+                    "_DIR_DEST_BACKUP_GEN"        : "/media/USB-BACKUP",
+                    "_DIR_BACKUP_CONF"            : "/home/lbackup/Documenti/files_backup",
+                    "_DIR_TEMPORARY"              : "/tmp",
+                    // Parametri Generali di condfigurazione
+                    "_FILE_NAME_EXCLUDE"          : "exclude_filelist.txt",
+                    "_FILE_NAME_INCLUDE"          : "include_filelist.txt",
+                    "_FILE_NAME_TEMPLATE_EMAIL"   : "email_template.html",
+                    "_LOG"                        : "log",
+                    "_MOD"                        : "lista",
+                    "_EMAIL"                      : "email",
+                    "_EXT_LOG"                    : "log",
+                    "_EXT_MOD"                    : "log",
+                    "_EXT_EMAIL"                  : "html"
+                },
+                "3-listaLog": [""]
+            },
+            {
+                // Parametri dello specifico backup
+                "1-nome": "bck_paghesviluppo B",
+                "2-listaPar": {
+                    // Parametri Specifici del backup
+                    "_NAME_BACKUP"                : "bck_paghesviluppo",
+                    "_DIR_SRC_BACKUP"             : "/media/linuxsviluppo",
+                    // Parametri Generali
+                    "_DIR_DEST_BACKUP_GEN"        : "/media/USB-BACKUP",
+                    "_DIR_BACKUP_CONF"            : "/home/lbackup/Documenti/files_backup",
+                    "_DIR_TEMPORARY"              : "/tmp",
+                    // Parametri Generali di condfigurazione
+                    "_FILE_NAME_EXCLUDE"          : "exclude_filelist.txt",
+                    "_FILE_NAME_INCLUDE"          : "include_filelist.txt",
+                    "_FILE_NAME_TEMPLATE_EMAIL"   : "email_template.html",
+                    "_LOG"                        : "log",
+                    "_MOD"                        : "lista",
+                    "_EMAIL"                      : "email",
+                    "_EXT_LOG"                    : "log",
+                    "_EXT_MOD"                    : "log",
+                    "_EXT_EMAIL"                  : "html"
+                },
+                "3-listaLog": ["log20170101","log20170102","log20170103","log20170104"]
+            },
+            {
+                // Parametri dello specifico backup
+                "1-nome": "bck_paghesviluppo C",
+                "2-listaPar": {
+                    // Parametri Specifici del backup
+                    "_NAME_BACKUP"                : "bck_paghesviluppo",
+                    "_DIR_SRC_BACKUP"             : "/media/linuxsviluppo",
+                    // Parametri Generali
+                    "_DIR_DEST_BACKUP_GEN"        : "/media/USB-BACKUP",
+                    "_DIR_BACKUP_CONF"            : "/home/lbackup/Documenti/files_backup",
+                    "_DIR_TEMPORARY"              : "/tmp",
+                    // Parametri Generali di condfigurazione
+                    "_FILE_NAME_EXCLUDE"          : "exclude_filelist.txt",
+                    "_FILE_NAME_INCLUDE"          : "include_filelist.txt",
+                    "_FILE_NAME_TEMPLATE_EMAIL"   : "email_template.html",
+                    "_LOG"                        : "log",
+                    "_MOD"                        : "lista",
+                    "_EMAIL"                      : "email",
+                    "_EXT_LOG"                    : "log",
+                    "_EXT_MOD"                    : "log",
+                    "_EXT_EMAIL"                  : "html"
+                },
+                "3-listaLog": ["log20170101","log20170102","log20170103","log20170104"]
+            }
+        ];
+        arrayObjBkp.forEach(creaLista);
+
+        var arrayObjBkp2 =
+        [
+            {   "1-nome": "BACKUP NELLO",
+                "2-listaPar": {par1:"parametro1",par2:"parametro2",par3:"parametro3",par4:"parametro4"},
+                "3-listaLog": ["log20180101","log20180102","log20180103","log20180104"]
+            },
+            {   "1-nome": "BACKUP ROCCO",
+                "2-listaPar": {par1:"parametro1",par2:"parametro2",par3:"parametro3",par4:"parametro4"},
+                "3-listaLog": ["log20170101","log20170102","log20170103","log20170104"]
+            },
+            {   "1-nome": "BACKUP JIPPO",
+                "2-listaPar": {par1:"parametro1",par2:"parametro2",par3:"parametro3",par4:"parametro4"},
+                "3-listaLog": ["log20160101","log20160102","log20160103","log20160104"]
+            },
+            {   "1-nome": "BACKUP LOLLO",
+                "2-listaPar": {par1:"parametro1",par2:"parametro2",par3:"parametro3",par4:"parametro4"},
+                "3-listaLog": ["log20150101","log20150102","log20150103","log20150104"]
+            },
+            {   "1-nome": "BACKUP BETTO",
+                "2-listaPar": {par1:"parametro1",par2:"parametro2",par3:"parametro3",par4:"parametro4"},
+                "3-listaLog": ["log20140101","log20140102","log20140103","log20140104"]
+            },
+            {   "1-nome": "BACKUP POLLO",
+                "2-listaPar": {par1:"parametro1",par2:"parametro2",par3:"parametro3",par4:"parametro4"},
+                "3-listaLog": ["log20150101","log20150102","log20150103","log20150104"]
+            },
+            {   "1-nome": "BACKUP BELLO",
+                "2-listaPar": {par1:"parametro1",par2:"parametro2",par3:"parametro3",par4:"parametro4"},
+                "3-listaLog": ["log20150101","log20150102","log20150103","log20150104"]
+            },
+            {   "1-nome": "BACKUP TOTTI",
+                "2-listaPar": {par1:"parametro1",par2:"parametro2",par3:"parametro3",par4:"parametro4"},
+                "3-listaLog": ["log20150101","log20150102","log20150103","log20150104"]
+            },
+            {   "1-nome": "BACKUP GEKKO",
+                "2-listaPar": {par1:"parametro1",par2:"parametro2",par3:"parametro3",par4:"parametro4"},
+                "3-listaLog": ["log20150101","log20150102","log20150103","log20150104"]
+            },
+            {   "1-nome": "BACKUP SISSI",
+                "2-listaPar": {par1:"parametro1",par2:"parametro2",par3:"parametro3",par4:"parametro4"},
+                "3-listaLog": []
+            },
+            {   "1-nome": "BACKUP ZUZZU",
+                "2-listaPar": {par1:"parametro1",par2:"parametro2",par3:"parametro3",par4:"parametro4"},
+                "3-listaLog": ["log20150101","log20150102","log20150103","log20150104"]
+            },
+            {   "1-nome": "BACKUP VITTO",
+                "2-listaPar": {par1:"parametro1",par2:"parametro2",par3:"parametro3",par4:"parametro4"},
+                "3-listaLog": ["log20150101","log20150102","log20150103","log20150104"]
+            }
+        ];
+//        ].forEach(creaLista);
+
+        function aggiungiBackup() {
+            var objBkp = {
+                // Parametri dello specifico backup
+                "1-nome": "Nuovo",
+                "2-listaPar": {
+                    // Parametri Specifici del backup
+                    "_NAME_BACKUP"                : "bck_paghesviluppo",
+                    "_DIR_SRC_BACKUP"             : "/media/linuxsviluppo",
+                    // Parametri Generali
+                    "_DIR_DEST_BACKUP_GEN"        : "/media/USB-BACKUP",
+                    "_DIR_BACKUP_CONF"            : "/home/lbackup/Documenti/files_backup",
+                    "_DIR_TEMPORARY"              : "/tmp",
+                    // Parametri Generali di condfigurazione
+                    "_FILE_NAME_EXCLUDE"          : "exclude_filelist.txt",
+                    "_FILE_NAME_INCLUDE"          : "include_filelist.txt",
+                    "_FILE_NAME_TEMPLATE_EMAIL"   : "email_template.html",
+                    "_LOG"                        : "log",
+                    "_MOD"                        : "lista",
+                    "_EMAIL"                      : "email",
+                    "_EXT_LOG"                    : "log",
+                    "_EXT_MOD"                    : "log",
+                    "_EXT_EMAIL"                  : "html"
+                },
+                "3-listaLog": [""]
+            };
+            
+            console.log("Inserimento nuovo backup: " + document.getElementById("inputNewBackup").value);
+            // aggiungi un elemento all'array
+            objBkp["1-nome"] = document.getElementById("inputNewBackup").value;
+            //arrayObjBkp.push("objBkp.toString()");
+            //Array.prototype.push.apply(arrayObjBkp, objBkp);
+            console.log("Controllo arrayObjBkp length: " + Array.isArray(arrayObjBkp) + arrayObjBkp.length);
+            arrayObjBkp.push(objBkp);
+            console.log("Controllo arrayObjBkp length: " + Array.isArray(arrayObjBkp) + arrayObjBkp.length);
+            //console.log("Ultimo backup aggiunto: " + arrayObjBkp.pop()["1-nome"]);
+            //var concArray = arrayObjBkp.concat(objBkp);
+            console.log("Ultimo backup aggiunto: " + Array.isArray(objBkp));
+            // console.log("Ultimo backup aggiunto: " + Array.isArray(concArray));
+
+            // aggiungi un elelmento al DOM
+            arrayObjBkp.forEach(creaListaUltimo);
+        }
+
+        /*
+
+            0. ad ogni loop viene eseguita la funzione "aggiungiElemento(item, index, array)"
+            oppure
+            1. ad ogni loop esegui la funzione aggiungiElementoUltimo(item, index, array)
+            1.1. controlla l'index con la lunghezza dell'array se è l'ultimo allora esegui 
+
+
+        */
+
+        function creaListaUltimo(item, index, array) {
+            console.log("Indice: " + index + " - " + array.length + " - " + item["1-nome"]);
+            if(index === (array.length - 1)) {
+                aggiungiElementoDOM(item, index);
+                console.log('Inserisci ultimo elemento dell array: ' + item["1-nome"]);
+                //console.log('Inserisci ultimo elemento dell array: ' + item);
+                for(prop in item) {
+                    console.log('prop:' + prop);
+                }
+
+            }
+        }
+
+        function creaLista(item, index, array) {
+            aggiungiElementoDOM(item, index);
+
+        }
+
+    
+        /* Constant definition */
+        const EV_ACT_EXPAND     = 0;
+        const EV_ACT_CONTRACT   = 1;
+        const EV_DIR_BOTTOM_UP  = 0;
+        const EV_DIR_TOP_DOWN   = 1;
+        const TG_DESCENDANT     = 0;  
+        const TG_TARGET         = 1;
+        const TG_ANCHESTOR      = 2;
+
+
+        function updateH_exp (self) { 
+            //  controllare il livello
+            if( 
+                (self.classList[0] === "div_L3_bkp_cnit_lst")
+              ) {
+                // imposta un altezza fissa con overflow: "scroll"
+                //self.style.overflow = "scroll";
+                self.style.overflow = "hidden";
+                self.style.maxHeight = 140 + "px";
+                // self.style.overflow = null;
+                // self.style.maxHeight = null;
+                //self.removeAttribute("style");
+                console.log("exp - Id - maxHeight - Scroll " + self.id + " - " + self.style.maxHeight + " - " + self.scrollHeight);
+            } else if( 
+                (self.classList[0] === "div_L5_bkp_cnit_lst")
+              ) {
+                // imposta un altezza fissa con overflow: "scroll"
+                //self.style.overflow = "scroll";
+                self.style.overflow = "scroll";
+                self.style.maxHeight = 65 + "px";
+                console.log("exp - Id - maxHeight - Scroll " + self.id + " - " + self.style.maxHeight + " - " + self.scrollHeight);
+            } else if( 
+                (self.classList[0] === "div_L2_bkp_cnit") || 
+                (self.classList[0] === "div_L4_bkp_cnit")
+              ) {
+                //self.style.overflow = "hidden";
+                //self.style.maxHeight = self.scrollHeight + "px";
+                //self.style.maxHeight = 68 + "px";
+                console.log("exp - Id - maxHeight - Scroll " + self.id + " - " + self.style.maxHeight + " - " + self.scrollHeight);
+            }
+        }
+
+        function updateH_con (self) { 
+            //  controllare il livello
+            if( 
+                (self.classList[0] === "div_L3_bkp_cnit_lst") || 
+                (self.classList[0] === "div_L5_bkp_cnit_lst")
+              ) {
+                // imposta l'altezza fissa a 0 e overflow: "hidden"
+                self.style.overflow = "hidden";
+                self.style.maxHeight = 0 + "px";
+                console.log("Contrai elemento con id - classe: " + self.previousElementSibling.id + " - " + self.previousElementSibling.classList[0]);
+                if(self.previousElementSibling.classList[1]) {
+                    self.previousElementSibling.classList.remove(self.previousElementSibling.classList[1]);
+                }
+                console.log("con - Id - maxHeight - Scroll " + self.id + " - " + self.style.maxHeight + " - " + self.scrollHeight);
+            } else if( 
+                (self.classList[0] === "div_L2_bkp_cnit") || 
+                (self.classList[0] === "div_L4_bkp_cnit")
+              ) {
+                //self.style.overflow = "hidden";
+                // l'altezza minima dovrebbe essere 20 o 30
+                //self.style.maxHeight = self.scrollHeight + "px";
+                //self.style.maxHeight = 30 + "px";
+                console.log("con - Id - maxHeight - Scroll " + self.id + " - " + self.style.maxHeight + " - " + self.scrollHeight);
+           }
+        }
+
+        /* funzione evento onUpdateHeight */
+        function xonUpdateHeight (eb) {
+            var self = this;
+            var stLevel;
+            console.log('Start evUpdateHeight');
+            console.log('Id elemento - fase evento: ' + self.id + ' - ' + eb.eventPhase);
+            // definire lo stato del livello dell'elemento corrente
+            stLevel = TG_TARGET;
+            if(self.id.length > eb.detail.ev_target.id.length) {
+                stLevel = TG_DESCENDANT;
+                console.log("Livello del target: descendant");
+            } else if(self.id.length < eb.detail.ev_target.id.length) {
+                stLevel = TG_ANCHESTOR;
+                console.log("Livello del target: anchestor");
+            } else {
+                console.log("Livello del target: target");
+            }
+            // ELEMENTO CORRENTE (quello che riceve il comando via evento click)
+            // quando l'elemento corrente corrisponde all'elemento che ha avviato l'evento
+            // non è importante quale sia la fase del flusso di evento e quindi neppure della direzione
+            // TG_TARGET - EV_ACT_EXPAND
+            if(
+                (stLevel === TG_TARGET) && 
+                (eb.detail.ev_action === EV_ACT_EXPAND)
+                ) {
+                updateH_exp(self);
+                console.log("TG_TARGET - EV_ACT_EXPAND");
+            }
+
+            // TG_TARGET - EV_ACT_CONTRACT
+            if(
+                (stLevel === TG_TARGET) && 
+                (eb.detail.ev_action === EV_ACT_CONTRACT)
+                ) {
+                updateH_con(self);
+                console.log("TG_TARGET - EV_ACT_CONTRACT");
+            }
+            // ELEMENTO ATTIVO AL LIVELLO PIù BASSO (gli altri non interessano)
+            // quando la fase del flusso di evento è al target significa che mi trovo nell'elemento più
+            // "giovane" ovvero al livello più basso (posso trovarmi anche nella situazione in cui
+            // mi trovo l'elemento è il target ma questa situazione è già tratta al punto sopra)
+            // Event.AT_TARGET - TG_DESCENDANT - EV_ACT_CONTRACT 
+            if(
+                (eb.eventPhase === Event.AT_TARGET) &&
+                (stLevel === TG_DESCENDANT) && 
+                (eb.detail.ev_action === EV_ACT_CONTRACT)
+                ) {
+                updateH_con(self);
+                console.log("Event.AT_TARGET - TG_DESCENDANT - EV_ACT_CONTRACT");
+            }
+
+            // ELEMENTI "DESCENDANT" (gli elementi che si trovano tra l'elemento corrente
+            // e l'elemento target): interessano solo nella fase di contrazione
+            // Event.BUBBLING_PHASE - EV_DIR_BOTTOM_UP - TG_DESCENDANT - EV_ACT_CONTRACT
+            if(
+                (eb.eventPhase === Event.BUBBLING_PHASE) && (eb.detail.ev_direction === EV_DIR_BOTTOM_UP) &&
+                (stLevel === TG_DESCENDANT) && 
+                (eb.detail.ev_action === EV_ACT_CONTRACT)
+                ) {
+                updateH_con(self);
+                console.log("Event.BUBBLING_PHASE - EV_DIR_BOTTOM_UP - TG_DESCENDANT - EV_ACT_CONTRACT");
+            }
+
+            // ELEMENTI "ANCHESTOR"
+            // il comando di espansione interessa solo i livelli piu alti (anchestor)
+            // perchè i livelli più bassi sono chiusi e quindi non serve che si aggiornino
+            // Event.BUBBLING_PHASE - EV_DIR_BOTTOM_UP - TG_ANCHESTOR - EV_ACT_EXPAND
+            if(
+                (eb.eventPhase === Event.BUBBLING_PHASE) && (eb.detail.ev_direction === EV_DIR_BOTTOM_UP) &&
+                (stLevel === TG_ANCHESTOR) && 
+                (eb.detail.ev_action === EV_ACT_EXPAND)
+                ) {
+                updateH_exp(self);
+                console.log("Event.BUBBLING_PHASE - EV_DIR_BOTTOM_UP - TG_ANCHESTOR - EV_ACT_EXPAND");
+            }
+            // Event.BUBBLING_PHASE - EV_DIR_BOTTOM_UP - TG_ANCHESTOR - EV_ACT_CONTRACT
+            if(
+                (eb.eventPhase === Event.BUBBLING_PHASE) && (eb.detail.ev_direction === EV_DIR_BOTTOM_UP) &&
+                (stLevel === TG_ANCHESTOR) && 
+                (eb.detail.ev_action === EV_ACT_CONTRACT)
+                ) {
+                //updateH_con(self);
+                console.log("Event.BUBBLING_PHASE - EV_DIR_BOTTOM_UP - TG_ANCHESTOR - EV_ACT_CONTRACT");
+            }
+        }
+
+        /* evento onUpdateHeight al div_L3_bkp_title */
+        // function evUpdateHeight(x) {
+        //     for(var i=0; i < x.length; i++) {
+        //         x[i].addEventListener("updateHeight",xonUpdateHeight,{capture: false});
+        //     }
+        // }
+        // var x = document.getElementsByClassName("div_L2_bkp_cnit");
+        // evUpdateHeight(x);
+        // var x = document.getElementsByClassName("div_L3_bkp_cnit_lst");
+        // evUpdateHeight(x);
+        // var x = document.getElementsByClassName("div_L4_bkp_cnit");
+        // evUpdateHeight(x);
+        // var x = document.getElementsByClassName("div_L5_bkp_cnit_lst");
+        // evUpdateHeight(x);
+
+
+        /* funzione cerca "nipote più giovane" attivo */
+        function findActiveChild (nodeParent) {
+            // 'nodeParent' punta al 'title'
+            // 'sib' punta al 'cnit_lst'
+            // 'sib.children' punta al 'cnit' e ce ne possono essere 'n'
+            // 'sib.children[0].children[0]' punta al 'title'  
+            // 'sib.children[0].children[1]' punta al 'cnit'  
+            // 'sib.children[1].children[0]' punta al 'title'  
+            // 'sib.children[1].children[1]' punta al 'cnit'  
+            var sib = nodeParent.nextElementSibling;
+            console.log('fAC - Id sibling: ' + sib.id);
+            console.log('fAC - Id child sibling: ' + sib.children[0].children[0].id);
+            var classActive = sib.children[0].children[0].classList[0] + "_attivo";
+            console.log('fAC - classActive: ' + classActive);
+            for(var i=0; i < sib.children.length; i++) {
+                console.log('fAC - ac.id: ' + sib.children[i].children[0].id);
+                if(sib.children[i].children[0].classList.contains(classActive)) {
+                    return findActiveChild(sib.children[i].children[0]);
+                }
+            }
+            return nodeParent;
+        }            
+        
+        function actEspandiElemento(self) {
+            console.log('Elemento espanso');
+            // avvia l'evento di espansione
+            var ev = new CustomEvent("updateHeight", {
+                'bubbles': true,
+                'detail': {
+                    ev_action:      EV_ACT_EXPAND,
+                    ev_direction:   EV_DIR_BOTTOM_UP,
+                    ev_target:      self
+                }
+            });
+            elTarget = findActiveChild(self);
+            console.log('Elemento attivo piu giovane: ', elTarget.id);
+            elTarget.nextElementSibling.dispatchEvent(ev);
+        }
+
+        function actContraiElemento(self) {
+            console.log('Elemento contratto');
+            // avvia l'evento di contrazione
+            var ev = new CustomEvent("updateHeight", {
+                'bubbles': true,
+                'detail': {
+                    ev_action:      EV_ACT_CONTRACT,
+                    ev_direction:   EV_DIR_BOTTOM_UP,
+                    ev_target:      self
+                }
+            });
+            elTarget = findActiveChild(self);
+            console.log('Elemento attivo piu giovane: ', elTarget.id);
+            elTarget.nextElementSibling.dispatchEvent(ev);
+        }
+        
+
+        /* Aggiungere un evento onClick al div_L5_bkp_cnit_btn */
+        function evClickBkpBtn(x) {
+            for(var i=0; i < x.length; i++) {
+                x[i].addEventListener("click",function(){
+                    console.log('Start evClickBkpBtn');
+                });
+            }
+        }
+        var x = document.getElementsByClassName("div_L5_bkp_cnit_btn");
+        evClickBkpBtn(x);
+
+        function xonClickBkpTitle() {
+            var self = this;
+            var sib = self.nextElementSibling;
+            console.log('Start evClickBkpTitle ');
+            // imposta il nome della classe "_attivo"
+            var active_class = self.classList[0] + "_attivo";
+            console.log('Nome classe attiva: ' + active_class);
+            // cerca l'elemento con la classe attiva
+            var elementoAttivo = document.getElementsByClassName(active_class)[0];
+            if(elementoAttivo) {
+                console.log("Presente un elemento attivo");
+                // controllo id elemento corrente (self) ed elemento attivo
+                if(elementoAttivo.id === self.id) {
+                    console.log("Elemento attivo ed Elemento corrente coincidono");
+                } else {
+                    // elemento attivo e corrente sono diversi, quindi ...
+                    console.log("Elemento attivo ed Elemento corrente sono diversi");
+                    // chiudi/contrai l'elelmento attivo
+                    elementoAttivo.classList.toggle(active_class);
+                    actContraiElemento(elementoAttivo);
+                }
+            }
+            else {
+                console.log("Nessun elemento attivo");
+            }
+            // Esegue il toggle della classe "_attivo"
+            self.classList.toggle(active_class);
+            // controlla la classe "_attivo"
+            if(self.classList.contains(active_class)) {
+                actEspandiElemento(self);
+            } else {
+                actContraiElemento(self);
+            }
+        }
+
+        /* Aggiungere un evento onClick al div_L3_bkp_title */
+        // function evClickBkpTitle(x) {
+        //     for(var i=0; i < x.length; i++) {
+        //         x[i].addEventListener("click",xonClickBkpTitle);
+        //     }
+        // }
+        // var x = document.getElementsByClassName("div_L3_bkp_title");
+        // evClickBkpTitle(x);
+        // var x = document.getElementsByClassName("div_L5_bkp_title");
+        // evClickBkpTitle(x);
+
+        function aggiungiElementoDOM(item,index) {
+
+
+            // crea id livello
+            // var nodeIdLevel2 = nodeIdLevel1+lettera[index];
+            var nodeIdLevel2 = nodeIdLevel1+index+'_';
+            var nodeTmp;
+            
+            // creazione nodo <node_L2_cnit_bkp>
+            nodeTmp = document.createElement("div");
+            document.getElementById(div_L[1] + nodeIdLevel1).appendChild(nodeTmp);
+            // il nodo creato contiene il backup con indice "index"
+            nodeTmp.setAttribute("class","div_L2_bkp_cnit");
+            nodeTmp.setAttribute("id",div_L[2] + nodeIdLevel2);
+            nodeTmp.addEventListener("updateHeight",xonUpdateHeight,{capture: false});
+
+
+            // fine
+            for(prop in item) {
+                console.log('prop:' + prop);
+                var nameBkp;
+                // crea id livello
+                   
+                   
+                // fine
+                if(prop === "1-nome") {
+                   console.log('Crea nome Backup: ' + ' ' + index + ' ' + item[prop]);
+                   nameBkp = item[prop];
+
+                   var nodeIdLevel3_a = nodeIdLevel2 + 'a';
+
+                   // creazione nodo <node_L3_bkp_name>
+                   nodeTmp  = document.createElement("div");
+                   nodeTmp2 = document.createTextNode(nameBkp);
+                   document.getElementById(div_L[2] + nodeIdLevel2).appendChild(nodeTmp);
+                   nodeTmp.appendChild(nodeTmp2);
+                   nodeTmp.setAttribute("class","div_L3_bkp_title");
+                   nodeTmp.setAttribute("id",div_L[3] + nodeIdLevel3_a);
+                   nodeTmp.addEventListener("click",xonClickBkpTitle);
+
+                   // creare i seguenti div
+                   // div_erase (elimina il backup, si aprira una finestra per chiedere conferma dell'operazione)
+                   
+                }
+                else if (prop === "2-listaPar") {
+                    console.log('Crea la lista dei parametri per il Backup');   
+                    // crea il contenitore per la lista delle funzioni/tab del backup
+                    var nodeIdLevel3_b = nodeIdLevel2 + 'b';
+                    // creazione nodo <node_L3_bkp_cnit_lst_func>
+                    nodeTmp = document.createElement("div");
+                    document.getElementById(div_L[2] + nodeIdLevel2).appendChild(nodeTmp);
+                    nodeTmp.setAttribute("class","div_L3_bkp_cnit_lst");
+                    nodeTmp.setAttribute("id",div_L[3] + nodeIdLevel3_b);   
+                    nodeTmp.addEventListener("updateHeight",xonUpdateHeight,{capture: false});
+                    // ------------------------------------------------------------------------
+                    
+                    // crea il contenitore specifico per i parametri
+                    var nodeIdLevel4_ba = nodeIdLevel3_b + 'a';
+                    // creazione nodo <node_L4_bkp_cnit_f1_par>
+                    nodeTmp = document.createElement("div");
+                    document.getElementById(div_L[3] + nodeIdLevel3_b).appendChild(nodeTmp);
+                    nodeTmp.setAttribute("class","div_L4_bkp_cnit");
+                    nodeTmp.setAttribute("id",div_L[4] + nodeIdLevel4_ba);
+                    nodeTmp.addEventListener("updateHeight",xonUpdateHeight,{capture: false});
+                    
+                    // crea il contenitore per il titolo della lista parametri
+                    var nodeIdLevel5_baa = nodeIdLevel4_ba + 'a';
+                    // creazione nodo <node_L5_bkp_f1_title>
+                    nodeTmp = document.createElement("div");
+                    document.getElementById(div_L[4] + nodeIdLevel4_ba).appendChild(nodeTmp);
+                    nodeTmp.setAttribute("class","div_L5_bkp_title");
+                    nodeTmp.setAttribute("id",div_L[5] + nodeIdLevel5_baa);
+                    nodeTmp.addEventListener("click",xonClickBkpTitle);
+                    text_node_par = document.createTextNode("PARAMETRI");
+                    nodeTmp.appendChild(text_node_par);
+                    //document.getElementById(div_L[5] + nodeIdLevel5_baa).appendChild(text_node_par);
+                   
+                    // -----------------------
+
+                    // creare i seguenti div
+                    // div_edit      (attiverà gli elementi input dei parametri)
+                    btnTmp = document.createElement("div");
+                    nodeTmp.appendChild(btnTmp);
+                    btnTmp.setAttribute("class","div_L5_bkp_cnit_btn");
+                    //btnTmp.setAttribute("id",div_L[5] + nodeIdLevel5_baa);
+                    btnTmp.innerHTML = "&#9998";
+ 
+                    // div_conferma  (conferma ed invia al server i parametri aggiornati)
+                    btnTmp = document.createElement("div");
+                    nodeTmp.appendChild(btnTmp);
+                    btnTmp.setAttribute("class","div_L5_bkp_cnit_btn");
+                    //btnTmp.setAttribute("id",div_L[5] + nodeIdLevel5_baa);
+                    btnTmp.innerHTML = "&#x2713";
+
+                    // div_cancel    (cancella le modifiche sui parametri ovvero fa il roll-back)
+                    btnTmp = document.createElement("div");
+                    nodeTmp.appendChild(btnTmp);
+                    btnTmp.setAttribute("class","div_L5_bkp_cnit_btn");
+                    //btnTmp.setAttribute("id",div_L[5] + nodeIdLevel5_baa);
+                    btnTmp.innerHTML = "&#x2717";
+
+                    // -----------------------
+
+                   // crea il contenitore della lista dei parametri
+                   var nodeIdLevel5_bab = nodeIdLevel4_ba + 'b';
+                   // creazione nodo <node_L5_bkp_f1_cnit_lst_par>
+                   nodeTmp = document.createElement("div");
+                   document.getElementById(div_L[4] + nodeIdLevel4_ba).appendChild(nodeTmp);
+                   nodeTmp.setAttribute("class","div_L5_bkp_cnit_lst");
+                   nodeTmp.setAttribute("id",div_L[5] + nodeIdLevel5_bab);
+                   nodeTmp.addEventListener("updateHeight",xonUpdateHeight,{capture: false});
+                   
+                   for(par in item[prop]) {
+                   console.log('Lista parametri: ' + par + ' ' + nameBkp + ' ' + item[prop][par]);
+
+                   // creazione nodo <div_L6_bkp_f1_cnit_par>
+                   nodeTmp = document.createElement("div");
+                   nodeTmp.setAttribute("class","div_L6_bkp_f1_cnit_par");
+                   document.getElementById(div_L[5] + nodeIdLevel5_bab).appendChild(nodeTmp);
+
+                   nodeTmp1 = document.createTextNode(par + ": ");
+                   nodeTmp.appendChild(nodeTmp1);
+                   
+                   nodeTmp2 = document.createElement("input");
+                   nodeTmp2.setAttribute("type","text");
+                   // nodeTmp2.setAttribute("Style","{max-width: 200px;}");
+                   nodeTmp2.setAttribute("name",par);
+                   nodeTmp2.setAttribute("class","input_par");
+                   nodeTmp2.setAttribute("value",item[prop][par]);
+                   nodeTmp.appendChild(nodeTmp2);
+                   
+                   }
+                }
+                else if (prop === "3-listaLog") {
+                    console.log('Crea la lista dei log per il Backup');
+
+                    // crea il contenitore specifico per i log
+                    var nodeIdLevel4_bb = nodeIdLevel3_b + 'b';
+                    // creazione nodo <node_L4_bkp_cnit_f2_log>
+                    nodeTmp = document.createElement("div");
+                    document.getElementById(div_L[3] + nodeIdLevel3_b).appendChild(nodeTmp);
+                    nodeTmp.setAttribute("class","div_L4_bkp_cnit");
+                    nodeTmp.setAttribute("id",div_L[4] + nodeIdLevel4_bb);  
+                    nodeTmp.addEventListener("updateHeight",xonUpdateHeight,{capture: false});
+                    // crea il contenitore per il titolo della lista log
+                    var nodeIdLevel5_bba = nodeIdLevel4_bb + 'a'       ;
+                    // creazione nodo <node_L5_bkp_f2_title>
+                    nodeTmp = document.createElement("div");
+                    document.getElementById(div_L[4] + nodeIdLevel4_bb).appendChild(nodeTmp);
+                    nodeTmp.setAttribute("class","div_L5_bkp_title");
+                    nodeTmp.setAttribute("id",div_L[5] + nodeIdLevel5_bba);
+                    nodeTmp.addEventListener("click",xonClickBkpTitle);
+                    text_node_log = document.createTextNode("LOG");
+                    nodeTmp.appendChild(text_node_log);
+                    //document.getElementById(div_L[5] + nodeIdLevel5_bba).appendChild(text_node_log);
+                    // crea il contenitore della lista dei log
+                    var nodeIdLevel5_bbb = nodeIdLevel4_bb + 'b';
+                    // creazione nodo <node_L5_bkp_f2_cnit_lst_log>
+                    nodeTmp = document.createElement("div");
+                    document.getElementById(div_L[4] + nodeIdLevel4_bb).appendChild(nodeTmp);
+                    nodeTmp.setAttribute("class","div_L5_bkp_cnit_lst");
+                    nodeTmp.setAttribute("id",div_L[5] + nodeIdLevel5_bbb);
+                    nodeTmp.addEventListener("updateHeight",xonUpdateHeight,{capture: false});
+
+                    item[prop].forEach(function(item1, index1, array1){
+                        console.log(index1, item1);
+                        // creazione nodo <div_L6_bkp_f2_cnit_log>
+                        nodeTmp = document.createElement("div");
+                        nodeTmp.setAttribute("class","div_L6_bkp_f2_cnit_log");
+                        document.getElementById(div_L[5] + nodeIdLevel5_bbb).appendChild(nodeTmp);
+                        
+                        nodeTmp2 = document.createElement("a");
+                        nodeTmp2.setAttribute("href","#");
+                        nodeTmp2.innerHTML = item1;
+                        nodeTmp.appendChild(nodeTmp2);
+                    });
+                }
+            }
+        }
+
+        </script>
+        
+    </body>
+</html>
